@@ -6,38 +6,34 @@
 | ---------------------- | ------  | ------------------------ |
 | nickname               | string  | null: false              |
 | email                  | string  | null: false,unique: true |
-| password               | string  | null: false              |
-| password_confirmation  | string  | null: false              |
+| encrypted_password     | string  | null: false              |
 | last_name              | string  | null: false              |
 | first_name             | string  | null: false              |
 | last_name_kana         | string  | null: false              |
 | first_name_kana        | string  | null: false              |
-| birthday_id            | integer | null: false              |  ##ActiveHash使う
+| birthday               | date    | null: false              |  
 
 ### Association
 - has_many :products
-- has_one  :shipping
-- has_one  :purchase
+- has_many :shipping
+- has_many :purchase
 
 
 ## productsテーブル
 
 | Column                     | Type       | Options       |
 | -------------------------- | ---------- | ------------- |
-| image                      | text       | null: false   |
-| item_name                  | string     | null: false   |
-| item_description           | text       | null: false   |
-| item_details_id            | integer    | null: false   |  ##ActiveHash使う
-| item_details_status_id     | integer    | null: false   |  ##ActiveHash使う
-| item_details_category_id   | integer    | null: false   |  ##ActiveHash使う
+| name                       | string     | null: false   |
+| description                | text       | null: false   |
+| details_status_id          | integer    | null: false   |  ##ActiveHash使う
+| details_category_id        | integer    | null: false   |  ##ActiveHash使う
 | shopping_charge_id         | integer    | null: false   |  ##ActiveHash使う
 | shipping_area_id           | integer    | null: false   |  ##ActiveHash使う
 | delivery_time_id           | integer    | null: false   |  ##ActiveHash使う
-| price                      | sting      | null: false   |
+| price                      | integer    | null: false   |
 
 ### Association
 - belongs_to :user
-- has_one    :shipping
 - has_one    :purchase
 
 
@@ -50,13 +46,13 @@
 | prefecture_id | integer    | null: false                    |　##ActiveHash使う
 | city          | string     | null: false                    |
 | bloc          | string     | null: false                    |
-| building      | string     | null: false                    |
-| phone_number  | string     | null: false, unique: true      |                 
+| building      | string     |                                |
+| phone_number  | string     | null: false, unique: true      |   
+| purchase_id   | integer    | null: false,foreign_key: true  |              
 
 ### Association
 - belongs_to :user
-- has_many   :products
-- belongs_to :purchase
+- has_one    :purchase
 
 
 
@@ -67,6 +63,6 @@
 | product_id             | integer  | null: false,foreign_key: true |
 
 ### Association
-- has_one  :user
-- has_one  :product
-- has_one  :shipping
+- belongs_to  :user
+- belongs_to  :product
+- belongs_to  :shipping
