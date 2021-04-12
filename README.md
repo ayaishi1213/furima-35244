@@ -1,24 +1,66 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+| Column                 | Type    | Options                  |
+| ---------------------- | ------  | ------------------------ |
+| nickname               | string  | null: false              |
+| email                  | string  | null: false,unique: true |
+| encrypted_password     | string  | null: false              |
+| last_name              | string  | null: false              |
+| first_name             | string  | null: false              |
+| last_name_kana         | string  | null: false              |
+| first_name_kana        | string  | null: false              |
+| birthday               | date    | null: false              |  
 
-* Ruby version
+### Association
+- has_many :products
+- has_many :purchases
 
-* System dependencies
 
-* Configuration
+## productsテーブル
 
-* Database creation
+| Column                     | Type       | Options                       |
+| -------------------------- | ---------- | ----------------------------- |
+| name                       | string     | null: false                   |
+| description                | text       | null: false                   |
+| details_status_id          | integer    | null: false                   |  ##ActiveHash使う
+| details_category_id        | integer    | null: false                   |  ##ActiveHash使う
+| shopping_charge_id         | integer    | null: false                   |  ##ActiveHash使う
+| shipping_area_id           | integer    | null: false                   |  ##ActiveHash使う
+| delivery_time_id           | integer    | null: false                   |  ##ActiveHash使う
+| price                      | integer    | null: false                   |
+| user                       |references  | null: false,foreign_key: true |
+### Association
+- belongs_to :user
+- has_one    :purchase
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## shippingsテーブル
 
-* Deployment instructions
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | ------------------------------ |
+| postcode          | string     | null: false                    |  
+| shipping_area_id  | integer    | null: false                    |　##ActiveHash使う
+| city              | string     | null: false                    |
+| bloc              | string     | null: false                    |
+| building          | string     |                                |
+| phone_number      | string     | null: false                    |   
+| purchase          | references | null: false,foreign_key: true  |              
 
-* ...
+### Association
+- belongs_to  :purchase
+
+
+
+## purchasesテーブル
+| Column                 | Type       | Options                       |
+| ---------------------- | ---------- | ----------------------------- |
+| user                   | references | null: false,foreign_key: true |
+| product                | references | null: false,foreign_key: true |
+
+### Association
+- belongs_to  :user
+- belongs_to  :product
+- has_one     :shipping
