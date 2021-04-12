@@ -15,7 +15,7 @@
 
 ### Association
 - has_many :products
-- has_many :purchase
+- has_many :purchases
 
 
 ## productsテーブル
@@ -30,7 +30,7 @@
 | shipping_area_id           | integer    | null: false                   |  ##ActiveHash使う
 | delivery_time_id           | integer    | null: false                   |  ##ActiveHash使う
 | price                      | integer    | null: false                   |
-| user_id                    | integer    | null: false,foreign_key: true |
+| user                       |references  | null: false,foreign_key: true |
 ### Association
 - belongs_to :user
 - has_one    :purchase
@@ -47,21 +47,20 @@
 | bloc              | string     | null: false                    |
 | building          | string     |                                |
 | phone_number      | string     | null: false                    |   
-| purchase_id       | integer    | null: false,foreign_key: true  |              
+| purchase          | references | null: false,foreign_key: true  |              
 
 ### Association
-- belongs_to  :user
 - belongs_to  :purchase
 
 
 
 ## purchasesテーブル
-| Column                 | Type     | Options                       |
-| ---------------------- | ------   | ----------------------------- |
-| user_id                | integer  | null: false,foreign_key: true |
-| product_id             | integer  | null: false,foreign_key: true |
+| Column                 | Type       | Options                       |
+| ---------------------- | ---------- | ----------------------------- |
+| user                   | references | null: false,foreign_key: true |
+| product                | references | null: false,foreign_key: true |
 
 ### Association
 - belongs_to  :user
 - belongs_to  :product
-- has_one  :shipping
+- has_one     :shipping
