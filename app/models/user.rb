@@ -13,13 +13,13 @@ class User < ApplicationRecord
   end
 
   with_options presence: true, format: { with: /\A[\p{katakana}\u{30fc}]+\z/, message: '全角カナを使用してください' } do
-    validates :last_name_kana,      presence: true
-    validates :first_name_kana,     presence: true
+    validates :last_name_kana
+    validates :first_name_kana
   end
   
   with_options presence: true do
-    validates :nickname ,           presence: true
-    validates :birthday,            presence: true
+    validates :nickname
+    validates :birthday
   end
   
   has_many :products
