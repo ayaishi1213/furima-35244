@@ -17,7 +17,7 @@ RSpec.describe Item, type: :model do
         it '商品画像を1枚ついていないと出品できない' do
           @item.image = nil
           @item.valid?
-          expect(@item.errors.full_messages).to include()
+          expect(@item.errors.full_messages).to include("Image can't be blank")
         end
   
         it '商品名が空だと出品できない' do
@@ -66,6 +66,12 @@ RSpec.describe Item, type: :model do
           @item.price  = ''
           @item.valid?
           expect(@item.errors.full_messages).to include("Price can't be blank")
+        end
+
+        it '販売価格は半角数字のみでないと出品できない'do
+          @item.price  = '１１１１１１'
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Price is not included in the list")
         end
       end
     end

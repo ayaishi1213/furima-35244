@@ -7,9 +7,10 @@ class Item < ApplicationRecord
     validates :shopping_charge_id, numericality: { other_than: 1 } 
     validates :shipping_area_id, numericality: { other_than: 1 } 
     validates :delivery_time_id , numericality: { other_than: 1 } 
+    validates :image
   end
 
-  with_options presence: true, format: { with: /\A[0-9]+\z/, message: '半角数字のみを使用してください' } do
+  with_options presence: true, inclusion: { in: 300..9_999_999 }, format: { with: /\A[0-9]+\z/ } do
     validates :price
   end
 
