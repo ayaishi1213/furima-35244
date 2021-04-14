@@ -7,7 +7,7 @@ FactoryBot.define do
     shopping_charge_id          {Faker::Number.between(from: 2, to: 3)}
     shipping_area_id            {Faker::Number.between(from: 2, to: 48)}
     delivery_time_id            {Faker::Number.between(from: 2, to: 4)}
-    price                       {'10000'}
+    price                       {10000}
     image                       {Faker::Lorem.sentence}
     association :user
 

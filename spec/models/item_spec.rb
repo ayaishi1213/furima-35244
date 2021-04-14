@@ -75,9 +75,57 @@ RSpec.describe Item, type: :model do
         end
 
         it '販売価格は300〜9,999,999円でないと出品できない'do
-          @item.price  = '99999999999999999'
+          @item.price  = 99999999999999999
           @item.valid?
           expect(@item.errors.full_messages).to include("Price is not included in the list")
+        end
+
+        it '値段が半角英数混合では登録できないこと' do
+          @item.price  = '1a1a1a1a1a'
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Price is not included in the list")          
+        end
+
+        it '値段が半角英語だけでは登録できないこと' do
+          @item.price  = 'aaaaaaa'
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Price is not included in the list")          
+        end
+
+        it '値段が299円以下の場合は登録できない' do
+          @item.price  = 299
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Price is not included in the list")    
+        end
+
+        it 'カテゴリーが1の場合は登録できない' do
+          @item.details_category_id  = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Details category must be other than 1")          
+        end
+
+        it '商品の状態が1の場合は登録できない' do
+          @item.details_status_id  = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Details status must be other than 1")        
+        end
+
+        it '配送料の負担が1の場合は登録できない' do
+          @item.shopping_charge_id  = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Shopping charge must be other than 1")           
+        end
+
+        it '発送までの日数が1の場合は登録できない' do
+          @item.delivery_time_id  = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Delivery time must be other than 1")          
+        end
+
+        it '発送元の地域が1の場合は登録できない' do
+          @item.shipping_area_id  = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Shipping area must be other than 1")           
         end
       end
     end

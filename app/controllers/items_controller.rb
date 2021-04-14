@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :sign_in_user, only:[:new, :create]
+  before_action :authenticate_user!, only:[:new, :create]
 
   def index
-    @items = Item.all
+    #@items = Item.all
   end
 
   def new
@@ -25,7 +25,4 @@ class ItemsController < ApplicationController
                                  :shopping_charge_id,:shipping_area_id,:delivery_time_id, :price, :image).merge(user_id: current_user.id)
   end
   
-  def sign_in_user
-    redirect_to new_user_session_url unless user_signed_in?
-  end
 end
