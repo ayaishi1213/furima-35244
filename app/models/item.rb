@@ -22,4 +22,5 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_area
   belongs_to_active_hash :shopping_charge
   belongs_to_active_hash :details_category
+  
 end
