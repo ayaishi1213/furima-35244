@@ -2,12 +2,15 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :description
-    validates :details_status_id, numericality: { other_than: 1 } 
-    validates :details_category_id, numericality: { other_than: 1 } 
-    validates :shopping_charge_id, numericality: { other_than: 1 } 
-    validates :shipping_area_id, numericality: { other_than: 1 } 
-    validates :delivery_time_id , numericality: { other_than: 1 } 
     validates :image
+  end
+
+  with_options presence: true, numericality: { other_than: 1 } do
+    validates :details_status_id
+    validates :details_category_id
+    validates :shopping_charge_id
+    validates :shipping_area_id
+    validates :delivery_time_id
   end
 
   with_options presence: true, inclusion: { in: 300..9_999_999 }, format: { with: /\A[0-9]+\z/ } do
