@@ -22,6 +22,6 @@ class User < ApplicationRecord
     validates :birthday
   end
   
-  has_many :products
-  has_many :purchases
+  has_many :items
+  has_many :orders
 end
