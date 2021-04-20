@@ -1,6 +1,6 @@
 class OrderShipping
   include ActiveModel::Model
-  attr_accessor :postcode, :shipping_area_id, :city, :bloc, :building, :phone_number, :order_id, :user_id, :item_id, :token 
+  attr_accessor :postcode, :shipping_area_id, :city, :bloc, :building, :phone_number, :user_id, :item_id, :token 
 
   with_options presence: true do
     validates :postcode, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}

@@ -39,10 +39,22 @@ RSpec.describe OrderShipping, type: :model do
         expect(@order_shipping.errors.full_messages).to include("Postcode is invalid")
       end
 
+      it '郵便番号が数字の入力だけでは購入できないこと' do
+        @order_shipping.postcode = '1234567'
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include("Postcode is invalid")
+      end
+
       it '都道府県の入力がないと購入できないこと' do
         @order_shipping.shipping_area_id = ''
         @order_shipping.valid?
         expect(@order_shipping.errors.full_messages).to include("Shipping area can't be blank")
+      end
+
+      it '無効な都道府県idが入力された時は購入できないこと' do
+        @order_shipping.shipping_area_id = '68'
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include()
       end
 
       it '市区町村の入力がないと購入できないこと' do
@@ -71,6 +83,12 @@ RSpec.describe OrderShipping, type: :model do
 
       it '電話番号が英数混合の場合は購入できないこと' do
         @order_shipping.phone_number = 'a0911111111'
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include("Phone number is invalid")
+      end
+
+      it '電話番号が12桁以上の場合は購入できないこと' do
+        @order_shipping.phone_number = '090111122223'
         @order_shipping.valid?
         expect(@order_shipping.errors.full_messages).to include("Phone number is invalid")
       end
