@@ -63,10 +63,28 @@ RSpec.describe OrderShipping, type: :model do
         expect(@order_shipping.errors.full_messages).to include("Phone number can't be blank")
       end
 
-      it '電話番号が9桁未満購入できないこと' do
+      it '電話番号が9桁以下の場合は購入できないこと' do
         @order_shipping.phone_number = '090111111'
         @order_shipping.valid?
         expect(@order_shipping.errors.full_messages).to include("Phone number is invalid")
+      end
+
+      it '電話番号が英数混合の場合は購入できないこと' do
+        @order_shipping.phone_number = 'a0911111111'
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include("Phone number is invalid")
+      end
+
+      it 'user_idがない場合は購入できないこと' do
+        @order_shipping.user_id = nil
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include("User can't be blank")
+      end
+
+      it 'item_idがない場合は購入できないこと' do
+        @order_shipping.item_id = nil
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include("Item can't be blank")
       end
     end
   end
