@@ -52,7 +52,7 @@ RSpec.describe OrderShipping, type: :model do
       end
 
       it '無効な都道府県idが入力された時は購入できないこと' do
-        @order_shipping.shipping_area_id = '1'
+        @order_shipping.shipping_area_id = 1
         @order_shipping.valid?
         expect(@order_shipping.errors.full_messages).to include("Shipping area must be other than 1")
       end
