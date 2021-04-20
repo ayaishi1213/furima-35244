@@ -14,11 +14,11 @@
 | birthday               | date    | null: false              |  
 
 ### Association
-- has_many :products
-- has_many :purchases
+- has_many :items
+- has_many :orders
 
 
-## productsテーブル
+## itemsテーブル
 
 | Column                     | Type       | Options                       |
 | -------------------------- | ---------- | ----------------------------- |
@@ -33,7 +33,7 @@
 | user                       |references  | null: false,foreign_key: true |
 ### Association
 - belongs_to :user
-- has_one    :purchase
+- has_one    :order
 
 
 
@@ -47,20 +47,20 @@
 | bloc              | string     | null: false                    |
 | building          | string     |                                |
 | phone_number      | string     | null: false                    |   
-| purchase          | references | null: false,foreign_key: true  |              
+| order             | references | null: false,foreign_key: true  |              
 
 ### Association
-- belongs_to  :purchase
+- belongs_to  :order
 
 
 
-## purchasesテーブル
+## ordersテーブル
 | Column                 | Type       | Options                       |
 | ---------------------- | ---------- | ----------------------------- |
 | user                   | references | null: false,foreign_key: true |
-| product                | references | null: false,foreign_key: true |
+| item                   | references | null: false,foreign_key: true |
 
 ### Association
 - belongs_to  :user
-- belongs_to  :product
+- belongs_to  :item
 - has_one     :shipping
