@@ -5,7 +5,7 @@ class Item < ApplicationRecord
     validates :image
   end
 
-  with_options presence: true, numericality: { other_than: 1 } do
+  with_options presence: true, numericality: { other_than: 1, message: 'を選択してください' } do
     validates :details_status_id
     validates :details_category_id
     validates :shopping_charge_id
