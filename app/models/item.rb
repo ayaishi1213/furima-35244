@@ -5,7 +5,7 @@ class Item < ApplicationRecord
     validates :image
   end
 
-  with_options presence: true, numericality: { other_than: 1 } do
+  with_options presence: true, numericality: { other_than: 1, message: 'を選択してください' } do
     validates :details_status_id
     validates :details_category_id
     validates :shopping_charge_id
@@ -13,7 +13,8 @@ class Item < ApplicationRecord
     validates :delivery_time_id
   end
 
-  with_options presence: true, inclusion: { in: 300..9_999_999 }, format: { with: /\A[0-9]+\z/ } do
+  with_options presence: true, inclusion: { in: 300..9_999_999, message: 'は半角数字で300~9,999,999円で設定してください' }, 
+                                          format: { with: /\A[0-9]+\z/} do
     validates :price
   end
 

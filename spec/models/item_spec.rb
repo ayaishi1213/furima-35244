@@ -35,97 +35,97 @@ RSpec.describe Item, type: :model do
         it 'カテゴリーの情報が空だと出品できない' do
            @item.details_category_id  = ''
            @item.valid?
-           expect(@item.errors.full_messages).to include("Details category can't be blank")
+           expect(@item.errors.full_messages).to include("Details category を選択してください")
         end
   
         it '商品の状態が空だと出品できない' do
            @item.details_status_id  = ''
            @item.valid?
-           expect(@item.errors.full_messages).to include("Details status can't be blank")        
+           expect(@item.errors.full_messages).to include("Details status を選択してください")        
         end
   
         it '配送料の負担が空だと出品できない' do
            @item.shopping_charge_id  = ''
            @item.valid?
-           expect(@item.errors.full_messages).to include("Shopping charge can't be blank") 
+           expect(@item.errors.full_messages).to include("Shopping charge を選択してください") 
         end
   
         it '発送もとの地域についての情報が空だと出品できない' do
            @item.shipping_area_id  = ''
            @item.valid?
-           expect(@item.errors.full_messages).to include("Shipping area can't be blank") 
+           expect(@item.errors.full_messages).to include("Shipping area を選択してください") 
         end
   
         it '発送までの日数についての情報が空だと出品できない' do
            @item.delivery_time_id  = ''
            @item.valid?
-           expect(@item.errors.full_messages).to include("Delivery time can't be blank")         
+           expect(@item.errors.full_messages).to include("Delivery time を選択してください")         
         end
   
         it '販売価格が空だと出品できない' do
           @item.price  = ''
           @item.valid?
-          expect(@item.errors.full_messages).to include("Price can't be blank")
+          expect(@item.errors.full_messages).to include("Price は半角数字で300~9,999,999円で設定してください")
         end
 
         it '販売価格は半角数字のみでないと出品できない'do
           @item.price  = '１１１１１１'
           @item.valid?
-          expect(@item.errors.full_messages).to include("Price is not included in the list")
+          expect(@item.errors.full_messages).to include("Price は半角数字で300~9,999,999円で設定してください")
         end
 
         it '販売価格は300〜9,999,999円でないと出品できない'do
           @item.price  = 99999999999999999
           @item.valid?
-          expect(@item.errors.full_messages).to include("Price is not included in the list")
+          expect(@item.errors.full_messages).to include("Price は半角数字で300~9,999,999円で設定してください")
         end
 
         it '値段が半角英数混合では登録できないこと' do
           @item.price  = '1a1a1a1a1a'
           @item.valid?
-          expect(@item.errors.full_messages).to include("Price is not included in the list")          
+          expect(@item.errors.full_messages).to include("Price は半角数字で300~9,999,999円で設定してください")          
         end
 
         it '値段が半角英語だけでは登録できないこと' do
           @item.price  = 'aaaaaaa'
           @item.valid?
-          expect(@item.errors.full_messages).to include("Price is not included in the list")          
+          expect(@item.errors.full_messages).to include("Price は半角数字で300~9,999,999円で設定してください")          
         end
 
         it '値段が299円以下の場合は登録できない' do
           @item.price  = 299
           @item.valid?
-          expect(@item.errors.full_messages).to include("Price is not included in the list")    
+          expect(@item.errors.full_messages).to include("Price は半角数字で300~9,999,999円で設定してください")    
         end
 
         it 'カテゴリーが1の場合は登録できない' do
           @item.details_category_id  = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Details category must be other than 1")          
+          expect(@item.errors.full_messages).to include("Details category を選択してください")          
         end
 
         it '商品の状態が1の場合は登録できない' do
           @item.details_status_id  = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Details status must be other than 1")        
+          expect(@item.errors.full_messages).to include("Details status を選択してください")        
         end
 
         it '配送料の負担が1の場合は登録できない' do
           @item.shopping_charge_id  = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Shopping charge must be other than 1")           
+          expect(@item.errors.full_messages).to include("Shopping charge を選択してください")           
         end
 
         it '発送までの日数が1の場合は登録できない' do
           @item.delivery_time_id  = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Delivery time must be other than 1")          
+          expect(@item.errors.full_messages).to include("Delivery time を選択してください")          
         end
 
         it '発送元の地域が1の場合は登録できない' do
           @item.shipping_area_id  = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Shipping area must be other than 1")           
+          expect(@item.errors.full_messages).to include("Shipping area を選択してください")           
         end
       end
     end
