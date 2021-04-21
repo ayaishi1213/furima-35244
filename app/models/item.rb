@@ -13,7 +13,8 @@ class Item < ApplicationRecord
     validates :delivery_time_id
   end
 
-  with_options presence: true, inclusion: { in: 300..9_999_999 }, format: { with: /\A[0-9]+\z/ } do
+  with_options presence: true, inclusion: { in: 300..9_999_999, message: 'は半角数字で300~9,999,999円で設定してください' }, 
+                                          format: { with: /\A[0-9]+\z/} do
     validates :price
   end
 
