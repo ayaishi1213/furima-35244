@@ -21,6 +21,7 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_one :order
+  has_many :comments
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :delivery_time
