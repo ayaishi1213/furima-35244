@@ -19,7 +19,7 @@ class Item < ApplicationRecord
   end
 
   belongs_to :user
-  has_one_attached :image
+  has_many_attached :images
   has_one :order
   has_many :comments
 
