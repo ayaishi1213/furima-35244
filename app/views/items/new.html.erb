@@ -20,7 +20,7 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, name: 'item[images][]', id:"item-image" %>
+        <%= f.file_field :image, id:"item-image" %>
       </div>
     </div>
     <%# /出品画像 %>
@@ -144,7 +144,6 @@
     <%# /下部ボタン %>
   </div>
   <% end %>
-
   <footer class="items-sell-footer">
     <ul class="menu">
       <li><a href="#">プライバシーポリシー</a></li>
