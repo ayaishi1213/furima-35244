@@ -68,14 +68,46 @@
 }
 
 
+<<<<<<< Updated upstream
 @media (max-width: 599px) {
-  .ad-footer-title {
-    font-size: 2.5vh;
-    margin-bottom: 2vh;
+=======
+@media (max-width: 1024px) {
+  .ad-footer-explain {
+    font-size: 2.1vh;
+    line-height: 30px;
+  }
+}
+
+@media (max-width: 599px) {
+  .ad-footer-explain {
+    line-height: 20px;
   }
 
-  .ad-footer-explain {
-    font-size: 1.5vh;
-    line-height: 30px;
+>>>>>>> Stashed changes
+  .ad-footer-title {
+    font-size: 2.5vh;
+    margin-bottom: 1vh;
+  }
+
+  .footer {
+    padding: 2vh 0;
+  }
+
+  .footer-content-head {
+    font-size: 10px;
+  }
+  
+  .footer-link {
+    font-size: 10px;
+    line-height: 10px;
+  }
+  
+  .logo-white {
+    width: 20vh;
+    vertical-align: bottom;
+  }
+  
+  .footer>p {
+    font-size: 14px;
   }
 }

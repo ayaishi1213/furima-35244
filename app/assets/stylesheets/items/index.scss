@@ -312,117 +312,76 @@ a {
 
 //タブレット画面対応
 @media (max-width: 1024px) {
-  .service-title {
-    font-size: 8vh;
+  .furima-icon {
+    width: 13vw;
+    margin-right: 7vw;
   }
 
   .service-explain {
     font-size: 2vh;
-    line-height: 30px;
-  }
+    line-height: 40px;
+  }  
 
   .apple-btn {
-    height: 7vh;
+    margin-right: 1vw;
+    height: 8vh;
   }
   
   .google-btn {
-    height: 7vh;
+    height: 8vh;
   }
 
-  .ad-title {
-    font-size: 4vh;
-    margin-bottom: 1.5vh;
-  }
-  
   .ad-explain {
     font-size: 2vh;
     line-height: 30px;
-  }  
-
-  .item-contents>.title {
-    font-size: 3.8vh;
-  }
-  
-  .item-contents>.subtitle {
-    font-size: 2.5vh;
-  }
-  
-  .item-lists {
-    width: 100vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .item-lists>.list {
-    width: 37vh;
-    padding: 1vw;
-    background-color: #FFF;
-  }
-  
-  
-  .item-img-content {
-    position: relative;
-  }
-  
-  .item-img {
-    width: 32.5vh;
-    height: 32.5vh;
-  }
-  
-  .item-name {
-    font-size: 2.3vh;
-  }
-  
-  .item-price {
-    font-size: 1.5vh;
-  }  
-  
-  .star-icon {
-    height: 1.8vh;
-    width: 1.8vh;
-  }
-  
-  .star-count {
-    font-size: 1.8vh;
   }
 }
 
 //スマホ画面対応
 
 @media (max-width: 599px) {
+<<<<<<< Updated upstream
   .service-title {
     font-size: 2.5vh;
   }
   .service-explain {
     font-size: 1.2vh;
     line-height: 25px;
+=======
+  .furima-icon {
+    width: 18vw;
+    margin-right: 5vw;
+>>>>>>> Stashed changes
   }
 
-  .apple-btn {
-    height: 5vh;
+  .nav {
+    font-size: 10px;
+    flex-wrap: nowrap;
   }
+
+  .login {
+    line-height: 10%;
+  }
+
+  .lists-left {
+    display: flex;
+    min-width: 100px;
   
-  .google-btn {
-    height: 5vh;
   }
 
-  .ad-explain {
-    font-size: 1.5vh;
+  .search-form>.input-box {
+    width: 80vw;
+    height: 3vh;
+    padding-left: 10px;
   }
 
-  .feature-contents>.title {
-    font-size: 3vh;
+  .search-button {
+    margin-right: 5px;
+    width: 4vh;
+    padding: 8px;
+    margin-right: 15px;
   }
-
-  .item-contents>.title {
-    font-size: 3vh;
-  }
-
-  .item-img {
-    width: 32vh;
-    height: 32vh;
-  }
+<<<<<<< Updated upstream
   
   .star-icon {
       height: 1.5vh;
@@ -442,13 +401,20 @@ a {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+=======
+
+  .search-form {
+    height: 3vh;
+  }
+
+  .item-contents>.title {
+    font-size: 4vh;
+    line-height: 1.4;
+>>>>>>> Stashed changes
   }
   
-  .reason-lists>.list {
-    width: 33vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
+  .item-contents>.subtitle {
+    font-size: 3vh;
+    margin: 1vh 0;
   }
 }
