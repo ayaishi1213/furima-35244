@@ -318,9 +318,14 @@ a {
   }
 
   .service-explain {
-    font-size: 2vh;
+    font-size: 2.5vh;
     line-height: 40px;
   }  
+
+  .store-btn {
+    display: flex;
+    margin-top: 24px;
+  }
 
   .apple-btn {
     margin-right: 1vw;
@@ -338,20 +343,10 @@ a {
 }
 
 //スマホ画面対応
-
 @media (max-width: 599px) {
-<<<<<<< Updated upstream
-  .service-title {
-    font-size: 2.5vh;
-  }
-  .service-explain {
-    font-size: 1.2vh;
-    line-height: 25px;
-=======
   .furima-icon {
     width: 18vw;
     margin-right: 5vw;
->>>>>>> Stashed changes
   }
 
   .nav {
@@ -381,40 +376,14 @@ a {
     padding: 8px;
     margin-right: 15px;
   }
-<<<<<<< Updated upstream
-  
-  .star-icon {
-      height: 1.5vh;
-      width: 1.5vh;
-  }
-
-  .star-count {
-    font-size: 1.5vh;
-  }
-
-  .select-reason-contents>.title {
-    font-size: 2.5vh;
-    margin-bottom: 4vh;
-  }
-
-  .reason-lists {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-=======
 
   .search-form {
     height: 3vh;
   }
 
-  .item-contents>.title {
-    font-size: 4vh;
-    line-height: 1.4;
->>>>>>> Stashed changes
-  }
-  
-  .item-contents>.subtitle {
-    font-size: 3vh;
-    margin: 1vh 0;
-  }
+  .service-explain {
+    font-size: 1.5vh;
+    line-height: 30px;
+  }  
+
 }
