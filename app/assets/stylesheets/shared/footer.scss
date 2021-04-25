@@ -66,3 +66,16 @@
 .footer>p {
   font-size: 14px;
 }
+
+
+@media (min-width: 375px) {
+  .ad-footer-title {
+    font-size: 3vh;
+    margin-bottom: 2vh;
+  }
+
+  .ad-footer-explain {
+    font-size: 1.5vh;
+    line-height: 30px;
+  }
+}
