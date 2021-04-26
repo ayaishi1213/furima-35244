@@ -312,13 +312,8 @@ a {
 
 //タブレット画面対応
 @media (max-width: 1024px) {
-  .furima-icon {
-    width: 13vw;
-    margin-right: 7vw;
-  }
-
   .service-explain {
-    font-size: 2vh;
+    font-size: 2.5vh;
     line-height: 40px;
   }  
 
@@ -344,11 +339,6 @@ a {
 
 //スマホ画面対応
 @media (max-width: 599px) {
-  .furima-icon {
-    width: 18vw;
-    margin-right: 5vw;
-  }
-
   .nav {
     font-size: 10px;
     flex-wrap: nowrap;
@@ -386,4 +376,22 @@ a {
     line-height: 30px;
   }  
 
+  .ad-explain {
+    font-size: 1.8vh;
+    line-height: 30px;
+  }
+
+  .store-btn {
+    display: flex;
+    margin-top: 24px;
+  }
+
+  .apple-btn {
+    margin-right: 1vw;
+    height: 6vh;
+  }
+  
+  .google-btn {
+    height: 6vh;
+  }
 }
